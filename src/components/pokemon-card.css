@@ -1,0 +1,45 @@
+.pokemon-card {
+  width: 330px;
+  height: 500px;
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/list_pokemon_bg.png");
+  color: white;
+  position: relative;
+}
+.pokemon-card img {
+  width: 12.3rem;
+  margin: 0 auto;
+  position: relative;
+  top: 2.4rem;
+}
+.pokemon-card p {
+  position: absolute;
+  bottom: 36%;
+  margin-left: 3rem;
+  color: #b4ebff;
+  font-size: 1.6rem;
+}
+.pokemon-card h2 {
+  position: absolute;
+  bottom: 28%;
+  margin-left: 3rem;
+  font-size: 2rem;
+}
+.pokemon-card div {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.5rem;
+}
+.pokemon-card div span {
+  background-color: green;
+  width: 7rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  height: 2.2rem;
+  letter-spacing: 1.6px;
+}

@@ -1,0 +1,90 @@
+.pokemon-list {
+  width: 1400px;
+  margin: 0 auto;
+  height: 600px;
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/list_top_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  position: relative;
+  margin-top: 4rem;
+}
+.pokemon-list .pokemon-list__searchbar {
+  position: absolute;
+  bottom: 9%;
+  left: 10%;
+  z-index: 20;
+}
+.pokemon-list .pokemon-list__searchbar p {
+  color: #b3eafe;
+  text-shadow: 0 0 5px #b3eafe, 0 0 5px #b3eafe;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.pokemon-list .pokemon-list__searchbar div {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.pokemon-list .pokemon-list__searchbar div input {
+  display: flex;
+  width: 40rem;
+  height: 3rem;
+  border-radius: 50px;
+  padding-left: 30px;
+  font-size: 1.6rem;
+}
+.pokemon-list .pokemon-list__searchbar div button {
+  display: flex;
+  align-items: center;
+  background: #ffdc00;
+  color: white;
+  padding: 0.6rem 8rem;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  height: 3rem;
+}
+.pokemon-list__center {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pokemon-list__center-top {
+  position: relative;
+}
+.pokemon-list__center-top .pokemon-list__center-top__spin {
+  width: 80rem;
+  position: relative;
+}
+.pokemon-list__center-top .pokemon-list__center-top__pokemon {
+  position: absolute;
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/random_center_bg.png") !important;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem !important;
+  height: 20rem !important;
+}
+.pokemon-list__center-top__heading {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 5rem;
+  width: 100%;
+  z-index: 20;
+}
+.pokemon-list__center-top__heading div {
+  position: relative;
+}
+.pokemon-list__center-top__heading div p {
+  position: absolute;
+  top: 29%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+}

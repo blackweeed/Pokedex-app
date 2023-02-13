@@ -30,11 +30,21 @@ function App() {
   ];
   uniqueObjArray.sort((a, b) => a.id - b.id);
 
-  console.log(uniqueObjArray);
-
   return (
-    <div>
-      <div className="flex  gap-20 flex-wrap justify-center my-20 ">
+    <div className="flex flex-col items-center">
+      <h1>Pokedex</h1>7
+      <div className="mt-10">
+        <input
+          className="pl-6 py-2 w-[400px] rounded-full mr-10"
+          type="search"
+          placeholder="Search"
+        />
+        <button className="py-2 w-[200px] rounded-full bg-yellow-300">
+          Suprise me
+        </button>
+      </div>
+      <div className="stats"></div>
+      <div className="flex  gap-20 flex-wrap justify-center my-10 ">
         {uniqueObjArray.map((item) => {
           return (
             <div
