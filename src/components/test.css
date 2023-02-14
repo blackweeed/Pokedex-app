@@ -56,8 +56,9 @@
   position: relative;
 }
 .pokemon-list__center-top .pokemon-list__center-top__spin {
-  width: 80rem;
+  width: 90rem;
   position: relative;
+  animation: spin 4s infinite linear;
 }
 .pokemon-list__center-top .pokemon-list__center-top__pokemon {
   position: absolute;
@@ -87,4 +88,13 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.8rem;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

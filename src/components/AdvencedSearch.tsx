@@ -17,7 +17,7 @@ const AdvencedSearch = () => {
           }
           alt=""
         />
-        <p>Lowest Number(First)</p>
+        <p>Lowest Number</p>
       </div>
     </div>
   );

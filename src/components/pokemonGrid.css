@@ -1,3 +1,41 @@
 .pokemon-grid {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 1400px;
+  margin-top: 5rem;
+}
+
+.pokemon-grid__display {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 2.85%;
+  row-gap: 2rem;
+  margin-bottom: 3rem;
+}
+.pokemon-grid__load-more {
+  height: 70px;
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/morebtn_bg.png");
+  width: 648px;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: 6rem;
+  cursor: pointer;
+  color: #b3eafe;
+}
+
+.pokemon-grid__load-more p {
+  text-shadow: 0 0 5px #b3eafe, 0 0 5px #b3eafe;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.pokemon-grid__load-more:hover {
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/morebtn_bg_on.png");
+  color: black;
+  -webkit-transition: background-image 0.3s linear;
+  transition: background-image 0.3s linear;
 }

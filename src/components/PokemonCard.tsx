@@ -1,17 +1,23 @@
 import "./pokemon-card.css";
 
-const PokemonCard = () => {
+interface Pokemon {
+  id: number;
+  image: string;
+  name: string;
+}
+
+const PokemonCard = ({ id, image, name, types }: Pokemon) => {
   return (
     <div className="pokemon-card">
-      <img
-        src="https://sg.portal-pokemon.com/play/resources/pokedex/img/pm/2fd12098f15628cce80d411e090189aeb7d758ff.png"
-        alt=""
-      />
-      <p>001</p>
-      <h2>Charrizard</h2>
+      <img src={image} alt="" />
+      <p>00{id}</p>
+      <h2>{name}</h2>
       <div>
-        <span>Grass</span>
-        <span>Poison</span>
+        {types.map((item) => (
+          <span className={`${item.type.name}`}>
+            {item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}
+          </span>
+        ))}
       </div>
     </div>
   );
