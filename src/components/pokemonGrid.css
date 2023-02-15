@@ -4,6 +4,10 @@
   align-items: center;
   min-width: 1400px;
   margin-top: 5rem;
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/list_bg.jpg");
+  background-position: top;
+  background-repeat: repeat;
+  background-size: 100% auto;
 }
 
 .pokemon-grid__display {
@@ -38,4 +42,40 @@
   color: black;
   -webkit-transition: background-image 0.3s linear;
   transition: background-image 0.3s linear;
+}
+.loader {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.loader img {
+  width: 30%;
+  animation: wiggle 2s linear infinite;
+}
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
 }

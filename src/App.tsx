@@ -57,8 +57,7 @@ function App() {
                 alt=""
               />
               <p className="font-medium">
-                {item.name.charAt(0).toUpperCase()}
-                {item.name.slice(1)}
+                {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
               </p>
               <span className="flex gap-2">
                 {item.types.map((item) => {

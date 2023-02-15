@@ -1,28 +1,61 @@
+.test {
+  position: relative;
+  width: 1400px;
+  margin: 0 auto;
+}
 .advenced-search {
   height: 92px;
   width: 1400px;
   margin: 0 auto;
   background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/advance_search_close_bg.png");
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-position: top;
+  /* background-color: red; */
   position: relative;
+  margin-bottom: 6rem;
+  z-index: 300;
+}
+.advenced-search span {
+  color: red;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
   cursor: pointer;
+  width: 30%;
+  height: 5rem;
+  z-index: 10;
 }
 .advenced-search p {
   color: #fff;
   text-shadow: 1px 1px 3px #fff, -1px -1px 3px #fff;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   position: absolute;
-  top: 20px;
+  bottom: 45px;
   left: 50%;
   transform: translateX(-50%);
+  cursor: pointer;
 }
-.advenced-search .advenced-search__filters {
+.advenced-search__open {
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/advance_search_open_bg.png");
+  background-size: 1400px 800px;
+  background-position: top;
+  height: 800px;
+  position: relative;
+  transition: background-image 0.2s linear;
+}
+.advenced-search__open p {
+  bottom: 14px;
+}
+.filter-container-absolute {
   position: absolute;
+  bottom: -5.5rem;
+  width: 33.85714286%;
   right: 2.85%;
-  top: 70px;
-  z-index: 10;
+  z-index: 9999;
+  height: 100px;
+  cursor: pointer;
 }
-.advenced-search .advenced-search__filters p {
-  text-shadow: none;
+.filter-container-absolute img {
+  width: 100%;
 }

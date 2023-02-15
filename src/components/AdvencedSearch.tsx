@@ -1,23 +1,36 @@
 import { useState } from "react";
 import "./advencedSearch.css";
+import open from "../images/open.png";
 const AdvencedSearch = () => {
   const [toggle, setToggle] = useState(false);
+  const [toggleAdvenced, setToggleAdvenced] = useState(false);
+
+  console.log(toggleAdvenced);
+
   return (
-    <div className="advenced-search">
-      <p>Show Advenced Search</p>
+    <div className="test">
       <div
-        onClick={() => setToggle((prev) => !prev)}
-        className="advenced-search__filters"
+        className={`advenced-search ${
+          toggleAdvenced ? `advenced-search__open` : null
+        }`}
       >
-        <img
-          src={
-            toggle
-              ? "https://sg.portal-pokemon.com/play/resources/pokedex/img/sort_open_bg.png"
-              : "https://sg.portal-pokemon.com/play/resources/pokedex/img/sort_close_bg.png"
-          }
-          alt=""
-        />
-        <p>Lowest Number</p>
+        <span onClick={() => setToggleAdvenced((prev) => !prev)} />
+        <p onClick={() => setToggleAdvenced((prev) => !prev)}>
+          {toggleAdvenced ? "Hide Advanced Search" : "Show Advanced Search"}
+        </p>
+      </div>
+      <div
+        className="filter-container-absolute"
+        onClick={() => setToggle((prev) => !prev)}
+      >
+        {toggle ? (
+          <img src={open} alt="" />
+        ) : (
+          <img
+            src="https://sg.portal-pokemon.com/play/resources/pokedex/img/sort_close_bg.png"
+            alt=""
+          />
+        )}
       </div>
     </div>
   );
