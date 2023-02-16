@@ -29,21 +29,39 @@ const AdvencedSearch = () => {
                 <p>Type</p>
                 <div className="type-classes">
                   <div>
-                    <input type="checkbox" />
                     <label htmlFor="">
-                      <span>Normal</span>
+                      <input type="checkbox" name="type" id="normal" />
+                      <span className="normal">Normal</span>
                     </label>
                   </div>
                   <div>
                     <input type="checkbox" />
                     <label htmlFor="">
-                      <span>Fire</span>
+                      <span className="fire">Fire</span>
                     </label>
                   </div>
                   <div>
                     <input type="checkbox" />
                     <label htmlFor="">
-                      <span>Water</span>
+                      <span className="water">Water</span>
+                    </label>
+                  </div>
+                  <div>
+                    <input type="checkbox" />
+                    <label htmlFor="">
+                      <span className="grass">Grass</span>
+                    </label>
+                  </div>
+                  <div>
+                    <input type="checkbox" />
+                    <label htmlFor="">
+                      <span className="electric">Electric</span>
+                    </label>
+                  </div>
+                  <div>
+                    <input type="checkbox" />
+                    <label htmlFor="">
+                      <span className="ice">Ice</span>
                     </label>
                   </div>
                 </div>
@@ -54,15 +72,28 @@ const AdvencedSearch = () => {
                   <input type="select" />
                 </div>
                 <div>
-                  <span style={{ display: "flex", gap: "5rem" }}>
+                  <span
+                    style={{
+                      display: "flex",
+                      gap: "4.6rem",
+                      fontSize: "1.8rem",
+                    }}
+                  >
                     <p>Number</p>
                     <span>1 - 1008</span>
                   </span>
-                  <input type="text" />
+                  <span className="range"></span>
                 </div>
               </div>
             </div>
-            <div className="bottom-side">Area</div>
+            <div className="bottom-side">
+              <p className="title">Area</p>
+              <div className="regions"></div>
+              <div className="buttons">
+                <button className="reset">Reset</button>
+                <button className="search">Search</button>
+              </div>
+            </div>
           </div>
         ) : null}
       </div>

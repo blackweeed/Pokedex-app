@@ -10,13 +10,11 @@
   background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/advance_search_close_bg.png");
   background-repeat: no-repeat;
   background-position: top;
-  /* background-color: red; */
   position: relative;
   margin-bottom: 6rem;
   z-index: 300;
 }
 .advenced-search .advenced-search__click {
-  color: red;
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -54,7 +52,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.078);
   color: white;
   display: flex;
   flex-direction: column;
@@ -75,13 +72,13 @@
   border-bottom: 1px solid #b4ebff;
   padding-bottom: 0.5em;
   margin-bottom: 1em;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .advenced-search__open-content .top-side .ability {
   flex-basis: 50%;
   margin-left: 3rem;
 }
-.advenced-search__open-content .ability div {
+.advenced-search__open-content .top-side .ability div {
   width: 100%;
   height: 200px;
   border: 2px solid #466e9b;
@@ -93,16 +90,57 @@
   gap: 20px;
   padding: 0 10%;
 }
-.advenced-search__open-content .ability div p {
+.advenced-search__open-content .top-side .ability div p {
   color: #b4ebff;
+  font-size: 1.8rem;
 }
-.advenced-search__open-content .ability div input {
-  border-radius: 10px;
+.advenced-search__open-content .top-side .ability div input {
+  border-radius: 20px;
+  height: 40px;
+}
+.advenced-search__open-content .ability div .range {
+  border-radius: 20px;
   width: 100%;
+  height: 4px;
+  background-color: #b4ebff;
 }
 .advenced-search__open-content .bottom-side {
-  background-color: rgba(0, 0, 255, 0.205);
   flex-basis: 30%;
+}
+.advenced-search__open-content .bottom-side p {
+  color: #b4ebff;
+  border-bottom: 1px solid #b4ebff;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  font-size: 1.8rem;
+}
+.advenced-search__open-content .buttons {
+  width: 100%;
+  display: flex;
+  font-size: 1.4rem;
+  gap: 5%;
+}
+.advenced-search__open-content .buttons .reset {
+  color: #b3eafe;
+  text-shadow: 0 0 5px #b3eafe, 0 0 5px #b3eafe;
+  -webkit-box-shadow: 0 0 2px 1px #b3eafe;
+  box-shadow: 0 0 2px 1px #b3eafe;
+  border-radius: 2.5em;
+  padding: 0.7rem;
+  width: 35%;
+}
+.advenced-search__open-content .buttons .search {
+  background: #b3eafe;
+  color: #000;
+  -webkit-box-shadow: 0 0 2px 1px #b3eafe;
+  box-shadow: 0 0 2px 1px #b3eafe;
+  text-align: center;
+  border-radius: 2.5em;
+  position: relative;
+  border: 1px solid #b3eafe;
+  line-height: 2.5em;
+  cursor: pointer;
+  width: 60%;
 }
 
 .filter-container-absolute {
@@ -142,7 +180,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  margin-top: 90px;
+  margin-top: 85px;
 }
 .filter-container-absolute .filter-container-absolute__open ul li {
   font-size: 1.4rem;
@@ -150,5 +188,161 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 22px;
+  padding: 0.7rem 0;
+  margin: 0 35px;
+}
+.filter-container-absolute .filter-container-absolute__open ul li:hover {
+  background-color: #ffffff5c;
+}
+
+.type-classes {
+  display: flex;
+  justify-content: center;
+  gap: 3.333333%;
+  flex-wrap: wrap;
+  row-gap: 3rem;
+}
+.type-classes div {
+  flex-basis: 30%;
+  height: 2.2rem;
+}
+.type-classes div {
+  font-size: 1.3rem;
+}
+.type-classes input[type="checkbox"] {
+  display: none;
+}
+.type-classes div span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* colors */
+/* .type-classes div label span {
+  background-color: red;
+} */
+
+.grass {
+  border-color: #b4f000;
+  background-color: #92bf19;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #92bf19;
+  box-shadow: 0 0 0.25em 0.03em #92bf19;
+  color: #b4f000;
+}
+.poison {
+  border-color: #d28cd2;
+  background-color: #be78be;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #be78be;
+  box-shadow: 0 0 0.25em 0.03em #be78be;
+  color: #d28cd2;
+}
+.fire {
+  border-color: #ff6900;
+  background-color: #ff3700;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #ff3700;
+  box-shadow: 0 0 0.25em 0.03em #ff3700;
+  color: #ff6900;
+}
+.ice {
+  border-color: #14f5ff;
+  background-color: #00b7ee;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #00b7ee;
+  box-shadow: 0 0 0.25em 0.03em #00b7ee;
+  color: #14f5ff;
+}
+.flying {
+  border-color: #78dcff;
+  background-color: #79bcd7;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #79bcd7;
+  box-shadow: 0 0 0.25em 0.03em #79bcd7;
+}
+.psychic {
+  border-color: #f08cdc;
+  background-color: #dc78c8;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #dc78c8;
+  box-shadow: 0 0 0.25em 0.03em #dc78c8;
+}
+.dragon {
+  border-color: #5078dc;
+  background-color: #3c64c8;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #3c64c8;
+  box-shadow: 0 0 0.25em 0.03em #3c64c8;
+}
+.water {
+  border-color: #14b9ff;
+  background-color: #0094e5;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #0094e5;
+  box-shadow: 0 0 0.25em 0.03em #0094e5;
+  color: #14b9ff;
+}
+.bug {
+  border-color: #46c846;
+  background-color: #32b432;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #32b432;
+  box-shadow: 0 0 0.25em 0.03em #32b432;
+}
+.normal {
+  border-color: #dcdcdc;
+  background-color: #a0a0a0;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #a0a0a0;
+  box-shadow: 0 0 0.25em 0.03em #a0a0a0;
+  color: #dcdcdc;
+}
+.dark {
+  border-color: #787878;
+  background-color: #646464;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #646464;
+  box-shadow: 0 0 0.25em 0.03em #646464;
+}
+.electric {
+  border-color: #ffe100;
+  background-color: #e4b700;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #e4b700;
+  box-shadow: 0 0 0.25em 0.03em #e4b700;
+  color: #ffe100;
+}
+.ground {
+  border-color: #fac85a;
+  background-color: #cca142;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #cca142;
+  box-shadow: 0 0 0.25em 0.03em #cca142;
+}
+.steel {
+  border-color: #aac8f0;
+  background-color: #96b4dc;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #96b4dc;
+  box-shadow: 0 0 0.25em 0.03em #96b4dc;
+}
+.fairy {
+  border-color: #ffafdc;
+  background-color: #ff7eb8;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #ff7eb8;
+  box-shadow: 0 0 0.25em 0.03em #ff7eb8;
+}
+.fighting {
+  border-color: #dc6900;
+  background-color: #c85500;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #c85500;
+  box-shadow: 0 0 0.25em 0.03em #c85500;
+}
+.rock {
+  border-color: #b48c64;
+  background-color: #a07850;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #a07850;
+  box-shadow: 0 0 0.25em 0.03em #a07850;
+}
+.ghost {
+  border-color: #a08cff;
+  background-color: #8c78f0;
+  -webkit-box-shadow: 0 0 0.25em 0.03em #8c78f0;
+  box-shadow: 0 0 0.25em 0.03em #8c78f0;
+}
+.type-classes input[type="checkbox"]:checked ~ span {
+  background-color: red !important;
 }
