@@ -1,6 +1,8 @@
-import { useState } from "react";
 import "./advencedSearch.css";
+import { useState } from "react";
+
 import open from "../images/open.png";
+
 const AdvencedSearch = () => {
   const [toggle, setToggle] = useState(false);
   const [toggleAdvenced, setToggleAdvenced] = useState(false);
@@ -88,7 +90,74 @@ const AdvencedSearch = () => {
             </div>
             <div className="bottom-side">
               <p className="title">Area</p>
-              <div className="regions"></div>
+              <div className="regions">
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Kanto</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Johnto</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Hoenn</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Sinnoh</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Sinnoh</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Sinnoh</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Sinnoh</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Sinnoh</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Sinnoh</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Sinnoh</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label htmlFor="">
+                    <span className="region">Sinnoh</span>
+                  </label>
+                </div>
+              </div>
               <div className="buttons">
                 <button className="reset">Reset</button>
                 <button className="search">Search</button>
