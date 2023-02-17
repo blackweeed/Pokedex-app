@@ -1,13 +1,16 @@
+import { useRef } from "react";
 import AdvencedSearch from "../components/AdvencedSearch";
 import PokemonGrid from "../components/PokemonGrid";
-import Test from "../components/Test";
+import Search from "../components/Search";
 
 const MainPage = () => {
+  const resultRef = useRef(null);
+
   return (
     <main>
-      <Test />
+      <Search resultRef={resultRef} />
       <AdvencedSearch />
-      <PokemonGrid />
+      <PokemonGrid ref={resultRef} />
     </main>
   );
 };

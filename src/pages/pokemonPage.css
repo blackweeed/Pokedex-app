@@ -1,0 +1,96 @@
+.pokemon-detail {
+  width: 1400px;
+  height: 2000px;
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/main_bg.jpg");
+  background-position: top;
+  background-repeat: no-repeat, repeat;
+  background-size: 100% auto;
+  background-color: #0a141e;
+  margin: 0 auto;
+  position: relative;
+}
+.pokemon-detail__header {
+  width: 100%;
+  height: 5%;
+  margin-bottom: 30px;
+}
+.pokemon-detail__header p {
+  position: relative;
+  text-align: center;
+  top: 50px;
+}
+.pokemon-detail__slider {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.pokemon-detail__slider .left {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_pc_left.png");
+  background-repeat: no-repeat;
+}
+.pokemon-detail__slider .left img {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 15%;
+  cursor: pointer;
+}
+.pokemon-detail__slider .left p {
+  position: absolute;
+  color: white;
+  font-size: 1.4rem;
+  left: 36%;
+  top: 15px;
+}
+.pokemon-detail__slider .left span {
+  margin-right: 1rem;
+  color: #b3eafe;
+}
+.pokemon-detail__slider .right {
+  position: relative;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_pc_right.png");
+  background-repeat: no-repeat;
+}
+.pokemon-detail__slider .right img {
+  top: 20%;
+  position: absolute;
+  right: 40px;
+  width: 15%;
+  cursor: pointer;
+}
+.pokemon-detail__slider .right p {
+  position: absolute;
+  color: white;
+  font-size: 1.4rem;
+  top: 15px;
+  right: 36%;
+}
+.pokemon-detail__slider .right span {
+  margin-left: 1rem;
+  color: #b3eafe;
+}
+.pokemon-detail__slider .pokemon-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pokemon-detail__slider .pokemon-name p {
+  color: #b3eafe;
+  font-size: 2.5rem;
+}
+.pokemon-detail__slider .pokemon-name h1 {
+  line-height: 2.2rem;
+  font-size: 3.3rem;
+  color: #fff;
+  text-shadow: 0 0 3px #000, 2px 2px 7px #9be1ff, -2px -2px 7px #9be1ff;
+  padding-bottom: 14px;
+}

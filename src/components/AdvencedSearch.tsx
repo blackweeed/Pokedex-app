@@ -1,23 +1,26 @@
 import "./advencedSearch.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import open from "../images/open.png";
 
 const AdvencedSearch = () => {
   const [toggle, setToggle] = useState(false);
   const [toggleAdvenced, setToggleAdvenced] = useState(false);
+  const ref = useRef(null);
+
+  const handleClick = () => {
+    setToggleAdvenced((prev) => !prev);
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <div className="test">
+    <div className="test" ref={ref}>
       <div
         className={`advenced-search ${
           toggleAdvenced ? `advenced-search__open` : null
         }`}
       >
-        <span
-          className="advenced-search__click"
-          onClick={() => setToggleAdvenced((prev) => !prev)}
-        />
+        <span className="advenced-search__click" onClick={handleClick} />
         <p
           className="advenced-search__title"
           onClick={() => setToggleAdvenced((prev) => !prev)}

@@ -60,16 +60,22 @@
   position: relative;
   animation: spin 4s infinite linear;
 }
+
 .pokemon-list__center-top .pokemon-list__center-top__pokemon {
   position: absolute;
-  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/random_center_bg.png") !important;
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: 100% 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 20rem !important;
-  height: 20rem !important;
+  width: 20rem;
+  height: 20rem;
+  opacity: 0;
+  transition: all 1.2s linear;
+  filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.6));
+}
+.show {
+  opacity: 1 !important;
 }
 .pokemon-list__center-top__heading {
   position: absolute;
