@@ -131,8 +131,8 @@
   margin: 0 auto;
 }
 .pokemon-detail__profile .pokemon-main__center .pokemon-img__front {
-  width: 66.7%;
-  top: 16.8%;
+  width: 54.7%;
+  top: 23%;
   position: absolute;
   left: 0;
   right: 0;
@@ -227,4 +227,9 @@
   width: 35%;
   font-size: 1.3rem;
   text-shadow: 0 0 5px rgb(0 0 0 / 75%);
+}
+.pokemon-detail__profile
+  .pokemon-main__bottom-left
+  .pokemon-type__type:nth-child(3) {
+  margin-left: 10%;
 }

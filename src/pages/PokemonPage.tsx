@@ -1,9 +1,31 @@
 import "./pokemonPage.css";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { PokemonContext } from "../context/Context";
+import axios from "axios";
+
 const PokemonPage = () => {
+  const [weakness, setWeakness] = useState();
   const [isShownLeft, setIsShownLeft] = useState(false);
   const [isShownRight, setIsShownRight] = useState(false);
+  const { uniqueObjArray } = PokemonContext();
+  const { id } = useParams();
+
+  let pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 2);
+
+  const getType = () => {
+    axios
+      .get(`https://pokeapi.co/api/v2/type/${pokemon?.types[0].type.name}`)
+      .then((res) => setWeakness(res.data));
+  };
+
+  useEffect(() => {
+    getType();
+  }, []);
+
+  const weaknesses = weakness?.damage_relations?.double_damage_from;
+
+  console.log(weaknesses);
 
   return (
     <div className="pokemon-detail">
@@ -29,8 +51,8 @@ const PokemonPage = () => {
           </p>
         </div>
         <div className="pokemon-name">
-          <p>0002</p>
-          <h1>Ivysaur</h1>
+          <p>00{pokemon?.id}</p>
+          <h1>{pokemon?.name}</h1>
         </div>
         <div className="right">
           <img
@@ -66,18 +88,20 @@ const PokemonPage = () => {
                   className="pokemon-img__blur"
                 />
               }
-              <img
-                src="https://sg.portal-pokemon.com/play/resources/pokedex/img/pm/3245e4f8c04aa0619cb31884dbf123c6918b3700.png"
-                alt=""
-                className="pokemon-img__front"
-              />
+              {
+                <img
+                  src={pokemon?.sprites.other["official-artwork"].front_default}
+                  alt=""
+                  className="pokemon-img__front"
+                />
+              }
             </div>
           </div>
           <div className="pokemon-main__right">
             <div className="pokemon-info">
               <span>
                 <p>Height</p>
-                <p>1.0 m</p>
+                <p>{pokemon?.height}.0 m</p>
               </span>
               <span>
                 <p>Category</p>
@@ -85,7 +109,7 @@ const PokemonPage = () => {
               </span>
               <span>
                 <p>Weight</p>
-                <p>13.0 kg</p>
+                <p>{pokemon?.weight}.0 kg</p>
               </span>
               <span>
                 <p>Gender</p>
@@ -110,22 +134,31 @@ const PokemonPage = () => {
               </span>
               <span>
                 <p>Ability</p>
-                <p>Overgrow</p>
+                <p>{pokemon?.abilities[0]?.ability.name}</p>
               </span>
             </div>
           </div>
           <div className="pokemon-main__upper-left">
             <div className="pokemon-type__title">Type</div>
             <div className="pokemon-type">
-              <p className="pokemon-type__type grass">Grass</p>
-              <p style={{ left: "10%" }} className="pokemon-type__type poison">
-                Poison
+              <p
+                className={`pokemon-type__type ${pokemon?.types[0].type.name}`}
+              >
+                {pokemon?.types[0].type.name}
               </p>
+              {
+                <p
+                  style={{ left: "10%" }}
+                  className={`pokemon-type__type ${pokemon?.types[1]?.type.name}`}
+                >
+                  {pokemon?.types[1]?.type.name}
+                </p>
+              }
             </div>
           </div>
           <div className="pokemon-main__bottom-left">
             <div className="pokemon-type__title">Weakness</div>
-            <div className="pokemon-type">
+            {/*  <div className="pokemon-type">
               <p className="pokemon-type__type fire">Fire</p>
               <p className="pokemon-type__type ice">Ice</p>
               <p
@@ -135,6 +168,11 @@ const PokemonPage = () => {
                 Flying
               </p>
               <p className="pokemon-type__type psychic">Psychic</p>
+            </div> */}
+            <div className="pokemon-type">
+              {weaknesses?.map((item) => (
+                <p className={`pokemon-type__type ${item.name}`}>{item.name}</p>
+              ))}
             </div>
           </div>
         </div>

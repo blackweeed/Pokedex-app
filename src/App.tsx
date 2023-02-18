@@ -7,7 +7,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/pokemon" element={<PokemonPage />} />
+        <Route path={`/:id`} element={<PokemonPage />} />
       </Routes>
     </>
   );

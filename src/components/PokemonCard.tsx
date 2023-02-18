@@ -9,7 +9,7 @@ interface Pokemon {
 
 const PokemonCard = ({ id, image, name, types }: Pokemon) => {
   return (
-    <Link to="/pokemon">
+    <Link to={`/${id}`}>
       <div className="pokemon-card">
         <img src={image} alt="" />
         <p>00{id}</p>

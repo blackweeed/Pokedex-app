@@ -36,6 +36,7 @@ export function ContextProvider({ children }: any) {
         uniqueObjArray,
         setSearch,
         getAllPokemons,
+        pokemons,
       }}
     >
       {children}
