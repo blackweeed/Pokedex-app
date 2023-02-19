@@ -3,17 +3,18 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { PokemonContext } from "../context/Context";
 import uppercaseFirstLetter from "../functions/uppercaseFirstLetter";
+import StyleOfPokemon from "../components/StyleOfPokemon";
 import axios from "axios";
 
 const PokemonPage = () => {
-  const [weakness, setWeakness] = useState();
-  const [weakness2, setWeakness2] = useState();
+  const [weakness, setWeakness] = useState([]);
+  const [weakness2, setWeakness2] = useState([]);
   const [isShownLeft, setIsShownLeft] = useState(false);
   const [isShownRight, setIsShownRight] = useState(false);
   const { uniqueObjArray } = PokemonContext();
   const { id } = useParams();
 
-  let pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 6);
+  const pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 6);
 
   const getType = () => {
     axios
@@ -191,6 +192,7 @@ const PokemonPage = () => {
         </div>
         <div className="right"></div>
       </div>
+      <StyleOfPokemon pokemon={pokemon.name} />
     </div>
   );
 };

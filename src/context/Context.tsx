@@ -6,7 +6,7 @@ const Context = createContext();
 export function ContextProvider({ children }: any) {
   const [pokemons, setPokemons] = useState<any[]>([]);
   const [loadMore, setLoadMore] = useState(
-    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=300"
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1279"
   );
   const [search, setSearch] = useState("");
 

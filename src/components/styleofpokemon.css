@@ -1,0 +1,27 @@
+.pokemon-style {
+  position: relative;
+  top: 4.5%;
+  height: 480px;
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/style1_bg.png");
+}
+.pokemon-style h2 {
+  color: #b3eafe;
+  font-size: 1.8rem;
+  margin-left: 3rem;
+}
+.pokemon-style__styles {
+  width: 100%;
+  height: 380px;
+  margin-left: 3.2rem;
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+.pokemon-style__styles .container {
+  background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/style_pokemon_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 200px;
+  height: 400px;
+  color: white;
+}
