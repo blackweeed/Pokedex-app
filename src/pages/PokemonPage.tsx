@@ -2,30 +2,45 @@ import "./pokemonPage.css";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { PokemonContext } from "../context/Context";
+import uppercaseFirstLetter from "../functions/uppercaseFirstLetter";
 import axios from "axios";
 
 const PokemonPage = () => {
   const [weakness, setWeakness] = useState();
+  const [weakness2, setWeakness2] = useState();
   const [isShownLeft, setIsShownLeft] = useState(false);
   const [isShownRight, setIsShownRight] = useState(false);
   const { uniqueObjArray } = PokemonContext();
   const { id } = useParams();
 
-  let pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 2);
+  let pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 6);
 
   const getType = () => {
     axios
-      .get(`https://pokeapi.co/api/v2/type/${pokemon?.types[0].type.name}`)
+      .get(`https://pokeapi.co/api/v2/type/${pokemon?.types[0]?.type.name}`)
       .then((res) => setWeakness(res.data));
+  };
+  const getType2 = () => {
+    axios
+      .get(`https://pokeapi.co/api/v2/type/${pokemon?.types[1]?.type.name}`)
+      .then((res) => setWeakness2(res.data));
   };
 
   useEffect(() => {
     getType();
+    getType2();
   }, []);
 
   const weaknesses = weakness?.damage_relations?.double_damage_from;
+  const weaknesses2 = weakness2?.damage_relations?.double_damage_from;
 
-  console.log(weaknesses);
+  const concatArray = weaknesses?.concat(weaknesses2);
+
+  const essa = concatArray?.filter((item) => item);
+
+  const uniqueTypeName = [
+    ...new Map(essa?.map((item) => [item["name"], item])).values(),
+  ];
 
   return (
     <div className="pokemon-detail">
@@ -52,7 +67,7 @@ const PokemonPage = () => {
         </div>
         <div className="pokemon-name">
           <p>00{pokemon?.id}</p>
-          <h1>{pokemon?.name}</h1>
+          <h1>{uppercaseFirstLetter(pokemon?.name)}</h1>
         </div>
         <div className="right">
           <img
@@ -134,48 +149,47 @@ const PokemonPage = () => {
               </span>
               <span>
                 <p>Ability</p>
-                <p>{pokemon?.abilities[0]?.ability.name}</p>
+                <p>
+                  {uppercaseFirstLetter(pokemon?.abilities[0]?.ability.name)}
+                </p>
               </span>
             </div>
           </div>
           <div className="pokemon-main__upper-left">
             <div className="pokemon-type__title">Type</div>
             <div className="pokemon-type">
-              <p
-                className={`pokemon-type__type ${pokemon?.types[0].type.name}`}
-              >
-                {pokemon?.types[0].type.name}
-              </p>
-              {
-                <p
-                  style={{ left: "10%" }}
-                  className={`pokemon-type__type ${pokemon?.types[1]?.type.name}`}
-                >
-                  {pokemon?.types[1]?.type.name}
+              {pokemon?.types.map((type) => (
+                <p className={`pokemon-type__type ${type.type.name}`}>
+                  {uppercaseFirstLetter(type.type.name)}
                 </p>
-              }
+              ))}
             </div>
           </div>
           <div className="pokemon-main__bottom-left">
             <div className="pokemon-type__title">Weakness</div>
-            {/*  <div className="pokemon-type">
-              <p className="pokemon-type__type fire">Fire</p>
-              <p className="pokemon-type__type ice">Ice</p>
-              <p
-                style={{ marginLeft: "10%" }}
-                className="pokemon-type__type flying"
-              >
-                Flying
-              </p>
-              <p className="pokemon-type__type psychic">Psychic</p>
-            </div> */}
             <div className="pokemon-type">
-              {weaknesses?.map((item) => (
-                <p className={`pokemon-type__type ${item.name}`}>{item.name}</p>
+              {uniqueTypeName?.map((item) => (
+                <p className={`pokemon-type__type ${item.name}`}>
+                  {uppercaseFirstLetter(item.name)}
+                </p>
               ))}
             </div>
           </div>
         </div>
+      </div>
+      <div className="pokemon-detail__stats">
+        <div className="left">
+          <h2>Versions</h2>
+          <img
+            src="https://sg.portal-pokemon.com/play/resources/pokedex/img/icon_ball_on.png"
+            alt=""
+          />
+          <img
+            src="https://sg.portal-pokemon.com/play/resources/pokedex/img/icon_ball.png"
+            alt=""
+          />
+        </div>
+        <div className="right"></div>
       </div>
     </div>
   );
