@@ -11,17 +11,47 @@
 }
 .pokemon-style__styles {
   width: 100%;
-  height: 380px;
+  height: 360px;
   margin-left: 3.2rem;
   display: flex;
   gap: 1.2rem;
-  margin-top: 2rem;
+  margin-top: 1.6rem;
 }
 .pokemon-style__styles .container {
   background-image: url("https://sg.portal-pokemon.com/play/resources/pokedex/img/style_pokemon_bg.png");
   background-repeat: no-repeat;
   background-size: 100%;
-  width: 200px;
-  height: 400px;
+  width: 220px;
+  height: 380px;
   color: white;
+  line-height: 1.9rem;
+  position: relative;
+}
+.pokemon-style__styles .container p {
+  text-align: center;
+  color: #b3eafe;
+  font-size: 1.4rem;
+}
+.pokemon-style__styles .container h3 {
+  font-size: 1.4rem;
+  text-align: center;
+  max-width: 180px;
+  margin: 0 auto;
+}
+.pokemon-style__styles .container div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 0.4rem;
+  position: absolute;
+  bottom: 6%;
+}
+.pokemon-style__styles .container div p {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: white;
+  font-size: 1.1rem;
 }

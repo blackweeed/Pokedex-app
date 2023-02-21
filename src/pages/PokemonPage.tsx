@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { PokemonContext } from "../context/Context";
 import uppercaseFirstLetter from "../functions/uppercaseFirstLetter";
 import StyleOfPokemon from "../components/StyleOfPokemon";
+import Evolutionofpokemon from "../components/Evolutionofpokemon";
 import axios from "axios";
 
 const PokemonPage = () => {
@@ -14,7 +15,9 @@ const PokemonPage = () => {
   const { uniqueObjArray } = PokemonContext();
   const { id } = useParams();
 
-  const pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 6);
+  const pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 20);
+
+  console.log(uniqueObjArray);
 
   const getType = () => {
     axios
@@ -192,7 +195,8 @@ const PokemonPage = () => {
         </div>
         <div className="right"></div>
       </div>
-      <StyleOfPokemon pokemon={pokemon.name} />
+      <StyleOfPokemon pokemon={pokemon?.name} />
+      <Evolutionofpokemon pokemon={pokemon?.name} />
     </div>
   );
 };
