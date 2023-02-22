@@ -12,12 +12,8 @@ const PokemonPage = () => {
   const [weakness2, setWeakness2] = useState([]);
   const [isShownLeft, setIsShownLeft] = useState(false);
   const [isShownRight, setIsShownRight] = useState(false);
-  const { uniqueObjArray } = PokemonContext();
   const { id } = useParams();
-
-  const pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 20);
-
-  console.log(uniqueObjArray);
+  const { uniqueObjArray } = PokemonContext();
 
   const getType = () => {
     axios
@@ -34,6 +30,8 @@ const PokemonPage = () => {
     getType();
     getType2();
   }, []);
+
+  const pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 12);
 
   const weaknesses = weakness?.damage_relations?.double_damage_from;
   const weaknesses2 = weakness2?.damage_relations?.double_damage_from;

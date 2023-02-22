@@ -3,19 +3,18 @@ import { useEffect, useState } from "react";
 import "./evolutionofpokemon.css";
 
 const evolutionofpokemon = ({ pokemon }) => {
-  const [evolution, setEvolution] = useState([]);
+  const [evolution, setEvolution] = useState("");
   const [chain, setChain] = useState([]);
-  let chainS = evolution?.evolution_chain?.url;
   const getEvolution = () => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon-species/${pokemon}`)
-      .then((res) => setEvolution(res.data));
+      .then((res) => setEvolution(res.data.evolution_chain?.url));
   };
   const getChain = () => {
-    axios.get(`${chainS}`).then((res) => console.log(res.data));
+    axios.get(evolution).then((res) => setChain(res.data));
   };
 
-  console.log(chainS);
+  console.log(chain);
 
   useEffect(() => {
     getEvolution();
@@ -23,11 +22,12 @@ const evolutionofpokemon = ({ pokemon }) => {
 
   useEffect(() => {
     getChain();
-  }, []);
+  }, [evolution]);
 
-  const firstEvolution = evolution?.chain?.evolves_to[0]?.species.name;
+  const baseForm = chain?.chain?.species?.name;
+  const firstEvolution = chain?.chain?.evolves_to[0]?.species.name;
   const secondEvolution =
-    evolution?.chain?.evolves_to[0].evolves_to[0]?.species.name;
+    chain?.chain?.evolves_to[0].evolves_to[0]?.species.name;
 
   return (
     <div className="pokemon-detail__evolution">
@@ -36,7 +36,7 @@ const evolutionofpokemon = ({ pokemon }) => {
         <div className="wrapper">
           <div className="pokemon-container">
             <p>001</p>
-            <p>Bulbasaur</p>
+            <p>{baseForm}</p>
             <div className="types">
               <p className="grass">Grass</p>
               <p className="poison">Poision</p>
@@ -50,14 +50,16 @@ const evolutionofpokemon = ({ pokemon }) => {
               <p className="poison">Poison</p>
             </div>
           </div>
-          <div className="pokemon-container">
-            <p>001</p>
-            <p>{secondEvolution}</p>
-            <div className="types">
-              <p className="grass">Grass</p>
-              <p className="poison">Poison</p>
+          {secondEvolution ? (
+            <div className="pokemon-container">
+              <p>001</p>
+              <p>{secondEvolution}</p>
+              <div className="types">
+                <p className="grass">Grass</p>
+                <p className="poison">Poison</p>
+              </div>
             </div>
-          </div>
+          ) : null}
         </div>
       </div>
     </div>

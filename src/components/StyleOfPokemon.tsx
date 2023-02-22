@@ -10,7 +10,7 @@ const StyleOfPokemon = ({ pokemon }) => {
   const { uniqueObjArray } = PokemonContext();
 
   const pokemone = uniqueObjArray?.filter((item) =>
-    item?.name.toLowerCase().includes(pokemon.toLowerCase())
+    item?.name?.toLowerCase().includes(pokemon?.toLowerCase())
   );
 
   return (
