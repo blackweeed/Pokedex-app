@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./evolutionofpokemon.css";
 import uppercaseFirstLetter from "../functions/uppercaseFirstLetter.js";
+import { useParams } from "react-router-dom";
 
 const evolutionofpokemon = ({ id }) => {
   const [baseForm, setBaseForm] = useState([]);
@@ -9,6 +10,7 @@ const evolutionofpokemon = ({ id }) => {
   const [secondEvolution, setSecondEvolution] = useState([]);
   const [evolution, setEvolution] = useState("");
   const [chain, setChain] = useState([]);
+
   const getEvolution = () => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
@@ -40,7 +42,7 @@ const evolutionofpokemon = ({ id }) => {
 
   useEffect(() => {
     getEvolution();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     getChain();

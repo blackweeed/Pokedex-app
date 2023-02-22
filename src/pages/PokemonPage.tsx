@@ -9,7 +9,6 @@ import axios from "axios";
 const PokemonPage = () => {
   const [weakness, setWeakness] = useState([]);
   const [weakness2, setWeakness2] = useState([]);
-  const [test, setTest] = useState([]);
   const [isShownLeft, setIsShownLeft] = useState(false);
   const [isShownRight, setIsShownRight] = useState(false);
   const [pokemons, setPokemons] = useState([]);
@@ -35,8 +34,6 @@ const PokemonPage = () => {
       .get(`https://pokeapi.co/api/v2/type/${test3[1]}`)
       .then((res) => setWeakness2(res.data));
   };
-
-  console.log(test3);
 
   const weaknesses = weakness?.damage_relations?.double_damage_from;
   const weaknesses2 = weakness2?.damage_relations?.double_damage_from;
@@ -65,18 +62,20 @@ const PokemonPage = () => {
       </div>
       <div className="pokemon-detail__slider">
         <div className="left">
-          <img
-            onMouseEnter={() => setIsShownLeft(true)}
-            onMouseLeave={() => setIsShownLeft(false)}
-            src={
-              isShownLeft
-                ? "https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_left_btn_on.png"
-                : "https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_left_btn.png"
-            }
-            alt=""
-          />
+          <Link to={`/${Number(id) - 1}`}>
+            <img
+              onMouseEnter={() => setIsShownLeft(true)}
+              onMouseLeave={() => setIsShownLeft(false)}
+              src={
+                isShownLeft
+                  ? "https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_left_btn_on.png"
+                  : "https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_left_btn.png"
+              }
+              alt=""
+            />
+          </Link>
           <p>
-            <span>{id - 1}</span>
+            <span>{Number(id) - 1}</span>
           </p>
         </div>
         <div className="pokemon-name">
@@ -84,18 +83,20 @@ const PokemonPage = () => {
           <h1>{uppercaseFirstLetter(pokemons?.name)}</h1>
         </div>
         <div className="right">
-          <img
-            onMouseEnter={() => setIsShownRight(true)}
-            onMouseLeave={() => setIsShownRight(false)}
-            src={
-              isShownRight
-                ? "https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_right_btn_on.png"
-                : "https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_right_btn.png"
-            }
-            alt=""
-          />
+          <Link to={`/${Number(id) + 1}`}>
+            <img
+              onMouseEnter={() => setIsShownRight(true)}
+              onMouseLeave={() => setIsShownRight(false)}
+              src={
+                isShownRight
+                  ? "https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_right_btn_on.png"
+                  : "https://sg.portal-pokemon.com/play/resources/pokedex/img/arrow_right_btn.png"
+              }
+              alt=""
+            />
+          </Link>
           <p>
-            <span>{id + 1}</span>
+            <span>{Number(id) + 1}</span>
           </p>
         </div>
       </div>
@@ -209,6 +210,19 @@ const PokemonPage = () => {
       </div>
       <StyleOfPokemon pokemon={pokemons?.name} />
       <Evolutionofpokemon id={id} />
+      <Link to="/">
+        <div
+          className="pokemon-grid__load-more"
+          style={{
+            position: "relative",
+            top: "6rem",
+            left: "50%",
+            transform: "translate(-50%, 0)",
+          }}
+        >
+          <p>Back to Pokedex</p>
+        </div>
+      </Link>
     </div>
   );
 };
