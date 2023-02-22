@@ -1,7 +1,6 @@
 import "./pokemonPage.css";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { PokemonContext } from "../context/Context";
 import uppercaseFirstLetter from "../functions/uppercaseFirstLetter";
 import StyleOfPokemon from "../components/StyleOfPokemon";
 import Evolutionofpokemon from "../components/Evolutionofpokemon";
@@ -10,11 +9,12 @@ import axios from "axios";
 const PokemonPage = () => {
   const [weakness, setWeakness] = useState([]);
   const [weakness2, setWeakness2] = useState([]);
+  const [test, setTest] = useState([]);
   const [isShownLeft, setIsShownLeft] = useState(false);
   const [isShownRight, setIsShownRight] = useState(false);
-  const [pokemons, setPokemons] = useState({});
+  const [pokemons, setPokemons] = useState([]);
   const { id } = useParams();
-  const { uniqueObjArray } = PokemonContext();
+  const test3 = pokemons?.types?.map((item) => item.type.name);
 
   useEffect(() => {
     axios
@@ -25,25 +25,18 @@ const PokemonPage = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
-  console.log(pokemons);
-
   const getType = () => {
     axios
-      .get(`https://pokeapi.co/api/v2/type/${pokemon?.types[0]?.type.name}`)
+      .get(`https://pokeapi.co/api/v2/type/${test3[0]}`)
       .then((res) => setWeakness(res.data));
   };
   const getType2 = () => {
     axios
-      .get(`https://pokeapi.co/api/v2/type/${pokemon?.types[1]?.type.name}`)
+      .get(`https://pokeapi.co/api/v2/type/${test3[1]}`)
       .then((res) => setWeakness2(res.data));
   };
 
-  useEffect(() => {
-    getType();
-    getType2();
-  }, []);
-
-  const pokemon = uniqueObjArray?.find((pokemon) => pokemon?.id === 12);
+  console.log(test3);
 
   const weaknesses = weakness?.damage_relations?.double_damage_from;
   const weaknesses2 = weakness2?.damage_relations?.double_damage_from;
@@ -55,6 +48,13 @@ const PokemonPage = () => {
   const uniqueTypeName = [
     ...new Map(essa?.map((item) => [item["name"], item])).values(),
   ];
+
+  useEffect(() => {
+    if (test3 !== undefined) {
+      getType();
+      getType2();
+    }
+  }, [pokemons]);
 
   return (
     <div className="pokemon-detail">
@@ -76,12 +76,12 @@ const PokemonPage = () => {
             alt=""
           />
           <p>
-            <span>0003</span>Bulbasaur
+            <span>{id - 1}</span>
           </p>
         </div>
         <div className="pokemon-name">
-          <p>00{pokemon?.id}</p>
-          <h1>{uppercaseFirstLetter(pokemon?.name)}</h1>
+          <p>{pokemons?.id}</p>
+          <h1>{uppercaseFirstLetter(pokemons?.name)}</h1>
         </div>
         <div className="right">
           <img
@@ -95,7 +95,7 @@ const PokemonPage = () => {
             alt=""
           />
           <p>
-            Venesaur<span>0003</span>
+            <span>{id + 1}</span>
           </p>
         </div>
       </div>
@@ -119,7 +119,9 @@ const PokemonPage = () => {
               }
               {
                 <img
-                  src={pokemon?.sprites.other["official-artwork"].front_default}
+                  src={
+                    pokemons?.sprites?.other["official-artwork"].front_default
+                  }
                   alt=""
                   className="pokemon-img__front"
                 />
@@ -130,7 +132,7 @@ const PokemonPage = () => {
             <div className="pokemon-info">
               <span>
                 <p>Height</p>
-                <p>{pokemon?.height}.0 m</p>
+                <p>{pokemons?.height}.0 m</p>
               </span>
               <span>
                 <p>Category</p>
@@ -138,7 +140,7 @@ const PokemonPage = () => {
               </span>
               <span>
                 <p>Weight</p>
-                <p>{pokemon?.weight}.0 kg</p>
+                <p>{pokemons?.weight}.0 kg</p>
               </span>
               <span>
                 <p>Gender</p>
@@ -163,16 +165,16 @@ const PokemonPage = () => {
               </span>
               <span>
                 <p>Ability</p>
-                <p>
-                  {uppercaseFirstLetter(pokemon?.abilities[0]?.ability.name)}
-                </p>
+                {pokemons?.abilities?.map((ability) => (
+                  <p>{uppercaseFirstLetter(ability.ability.name)}</p>
+                ))}
               </span>
             </div>
           </div>
           <div className="pokemon-main__upper-left">
             <div className="pokemon-type__title">Type</div>
             <div className="pokemon-type">
-              {pokemon?.types.map((type) => (
+              {pokemons?.types?.map((type) => (
                 <p className={`pokemon-type__type ${type.type.name}`}>
                   {uppercaseFirstLetter(type.type.name)}
                 </p>
@@ -205,8 +207,8 @@ const PokemonPage = () => {
         </div>
         <div className="right"></div>
       </div>
-      <StyleOfPokemon pokemon={pokemon?.name} />
-      <Evolutionofpokemon pokemon={pokemon?.name} />
+      <StyleOfPokemon pokemon={pokemons?.name} />
+      <Evolutionofpokemon id={id} />
     </div>
   );
 };

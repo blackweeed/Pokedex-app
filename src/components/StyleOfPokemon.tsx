@@ -5,9 +5,33 @@ import uppercaseFirstLetter from "../functions/uppercaseFirstLetter.js";
 
 import "./styleofpokemon.css";
 const StyleOfPokemon = ({ pokemon }) => {
-  const [pokemonStyles, setPokemonStyles] = useState([]);
+  const [pokemons, setPokemons] = useState<any[]>([]);
+  const [loadMore, setLoadMore] = useState(
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1279"
+  );
 
-  const { uniqueObjArray } = PokemonContext();
+  const getAllPokemons = async () => {
+    const res = await axios.get(loadMore);
+    setLoadMore(res.data.next);
+    function createPokemonObject(result) {
+      result.forEach(async (pokemon) => {
+        const res = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+        );
+
+        setPokemons((currentList) => [...currentList, res.data]);
+      });
+    }
+    createPokemonObject(res.data.results);
+  };
+
+  useEffect(() => {
+    getAllPokemons();
+  }, []);
+
+  let uniqueObjArray = [
+    ...new Map(pokemons.map((item) => [item["id"], item])).values(),
+  ];
 
   const pokemone = uniqueObjArray?.filter((item) =>
     item?.name?.toLowerCase().includes(pokemon?.toLowerCase())
@@ -17,7 +41,7 @@ const StyleOfPokemon = ({ pokemon }) => {
     <div className="pokemon-style">
       <h2>Style</h2>
       <div className="pokemon-style__styles">
-        {pokemone?.map((mega) => (
+        {pokemone?.slice(0, 5).map((mega) => (
           <div className="container">
             <img
               src={mega.sprites.other["official-artwork"].front_default}
