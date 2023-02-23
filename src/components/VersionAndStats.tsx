@@ -6,9 +6,17 @@ const pokeballRed =
 const pokeballBlue =
   "https://sg.portal-pokemon.com/play/resources/pokedex/img/icon_ball.png";
 
-const VersionAndStats = ({ id }) => {
+const VersionAndStats = ({ id, stats }) => {
   const [description, setDesciption] = useState([]);
   const [toggle, setToggle] = useState(true);
+
+  const statArray = stats?.map((stat) => Math.round(stat.base_stat / 15));
+
+  console.log(statArray);
+
+  const HP = 4;
+
+  const HPArray = Array.from(Array(HP).keys());
 
   const getDesciption = () => {
     axios
@@ -50,7 +58,25 @@ const VersionAndStats = ({ id }) => {
           </div>
         )}
       </div>
-      <div className="right"></div>
+      {/*  <div className="right">
+        {HPArray.sort((a, b) => b - a).map((item, index) => {
+          return (
+            <div
+              className={`${item <= 3 - 1 ? "essa" : "essa1"} ${
+                item <= 6 - 1 ? null : "essa2"
+              } `}
+            >
+              <p></p>
+            </div>
+          );
+        })}
+        <p>HP</p>
+      </div> */}
+      <div className="right">
+        {statArray.map((item) => (
+          <p>{item}</p>
+        ))}
+      </div>
     </div>
   );
 };

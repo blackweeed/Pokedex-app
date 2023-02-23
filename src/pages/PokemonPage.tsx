@@ -196,7 +196,7 @@ const PokemonPage = () => {
         </div>
       </div>
 
-      <VersionAndStats id={id} />
+      <VersionAndStats id={id} stats={pokemons.stats} />
       <StyleOfPokemon pokemon={pokemons?.name} />
       <Evolutionofpokemon id={id} />
 
