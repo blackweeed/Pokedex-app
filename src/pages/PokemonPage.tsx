@@ -5,6 +5,7 @@ import uppercaseFirstLetter from "../functions/uppercaseFirstLetter";
 import StyleOfPokemon from "../components/StyleOfPokemon";
 import Evolutionofpokemon from "../components/Evolutionofpokemon";
 import axios from "axios";
+import VersionAndStats from "../components/VersionAndStats";
 
 const PokemonPage = () => {
   const [weakness, setWeakness] = useState([]);
@@ -194,22 +195,11 @@ const PokemonPage = () => {
           </div>
         </div>
       </div>
-      <div className="pokemon-detail__stats">
-        <div className="left">
-          <h2>Versions</h2>
-          <img
-            src="https://sg.portal-pokemon.com/play/resources/pokedex/img/icon_ball_on.png"
-            alt=""
-          />
-          <img
-            src="https://sg.portal-pokemon.com/play/resources/pokedex/img/icon_ball.png"
-            alt=""
-          />
-        </div>
-        <div className="right"></div>
-      </div>
+
+      <VersionAndStats id={id} />
       <StyleOfPokemon pokemon={pokemons?.name} />
       <Evolutionofpokemon id={id} />
+
       <Link to="/">
         <div
           className="pokemon-grid__load-more"

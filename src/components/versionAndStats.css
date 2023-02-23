@@ -1,0 +1,35 @@
+.pokemon-detail__stats {
+  position: relative;
+  top: 2.7%;
+  width: 100%;
+  height: 322px;
+}
+.pokemon-detail__stats .left {
+  width: 40%;
+  height: 100%;
+  padding-top: 0.6rem;
+  padding-left: 3rem;
+}
+.pokemon-detail__stats .left div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.2rem;
+  z-index: 30;
+}
+.pokemon-detail__stats .left div h2 {
+  font-size: 1.8rem;
+  color: #b3eafe;
+  margin-right: 1rem;
+}
+.pokemon-detail__stats .left div img {
+  width: 6%;
+  height: 6%;
+  object-fit: contain;
+  cursor: pointer;
+  z-index: 999;
+}
+.pokemon-detail__stats .left p {
+  max-width: 400px;
+  color: white;
+  font-size: 1.4rem;
+}

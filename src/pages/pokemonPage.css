@@ -205,7 +205,7 @@
 .pokemon-detail__profile .pokemon-main__bottom-left {
   width: 28.8%;
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 8%;
   z-index: 110;
 }
@@ -235,29 +235,7 @@
 }
 .pokemon-detail__profile
   .pokemon-main__bottom-left
-  .pokemon-type__type:nth-child(3) {
+  .pokemon-type__type:nth-child(3),
+.pokemon-type__type:nth-child(7) {
   margin-left: 10%;
-}
-.pokemon-detail__stats {
-  background-color: rgba(255, 0, 0, 0.115);
-  position: relative;
-  top: 2.7%;
-  width: 100%;
-  height: 322px;
-}
-.pokemon-detail__stats .left {
-  background-color: rgba(34, 142, 102, 0.155);
-  width: 40%;
-  height: 100%;
-  color: #b3eafe;
-  display: flex;
-  align-items: top;
-  font-size: 1.8rem;
-  padding-top: 0.6rem;
-  padding-left: 3rem;
-}
-.pokemon-detail__stats .left img {
-  width: 11%;
-  height: 11%;
-  object-fit: contain;
 }
