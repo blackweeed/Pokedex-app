@@ -11,12 +11,14 @@ const VersionAndStats = ({ id, stats }) => {
   const [toggle, setToggle] = useState(true);
 
   const statArray = stats?.map((stat) => Math.round(stat.base_stat / 15));
-
-  console.log(statArray);
-
-  const HP = 4;
-
-  const HPArray = Array.from(Array(HP).keys());
+  const statsNameArray = [
+    "HP",
+    "Attack",
+    "Defense",
+    "Special Attack",
+    "Special Defense",
+    "Speed",
+  ];
 
   const getDesciption = () => {
     axios
@@ -58,24 +60,25 @@ const VersionAndStats = ({ id, stats }) => {
           </div>
         )}
       </div>
-      {/*  <div className="right">
-        {HPArray.sort((a, b) => b - a).map((item, index) => {
+      <div className="right">
+        {statArray?.map((item) => {
+          const array = Array.from(Array(item).keys());
           return (
-            <div
-              className={`${item <= 3 - 1 ? "essa" : "essa1"} ${
-                item <= 6 - 1 ? null : "essa2"
-              } `}
-            >
-              <p></p>
+            <div>
+              {array
+                .sort((a, b) => b - a)
+                .map((item) => {
+                  return (
+                    <div
+                      className={`${item <= 3 - 1 ? "essa" : "essa1"} ${
+                        item <= 6 - 1 ? null : "essa2"
+                      } `}
+                    ></div>
+                  );
+                })}
             </div>
           );
         })}
-        <p>HP</p>
-      </div> */}
-      <div className="right">
-        {statArray.map((item) => (
-          <p>{item}</p>
-        ))}
       </div>
     </div>
   );
