@@ -36,7 +36,7 @@
 .pokemon-detail__stats .right {
   position: absolute;
   right: 2%;
-  bottom: 1rem;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -65,6 +65,13 @@
   height: 1rem;
   background-color: #0a141e;
   border: 1px solid #466e9b;
+  z-index: 20;
+}
+
+.layout {
+  position: absolute;
+  bottom: 2.2rem;
+  z-index: 0;
 }
 
 .essa {
