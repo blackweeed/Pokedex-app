@@ -61,24 +61,31 @@ const VersionAndStats = ({ id, stats }) => {
         )}
       </div>
       <div className="right">
-        {statArray?.map((item) => {
-          const array = Array.from(Array(item).keys());
-          return (
-            <div>
-              {array
-                .sort((a, b) => b - a)
-                .map((item) => {
-                  return (
-                    <div
-                      className={`${item <= 3 - 1 ? "essa" : "essa1"} ${
-                        item <= 6 - 1 ? null : "essa2"
-                      } `}
-                    ></div>
-                  );
-                })}
-            </div>
-          );
-        })}
+        <div>
+          {statArray?.map((item) => {
+            const array = Array.from(Array(item).keys());
+            return (
+              <div>
+                {array
+                  .sort((a, b) => b - a)
+                  .map((item) => {
+                    return (
+                      <div
+                        className={`${item <= 3 - 1 ? "essa" : "essa1"} ${
+                          item <= 6 - 1 ? null : "essa2"
+                        } `}
+                      ></div>
+                    );
+                  })}
+              </div>
+            );
+          })}
+        </div>
+        <div className="statsName">
+          {statsNameArray.map((statsName) => (
+            <p>{statsName}</p>
+          ))}
+        </div>
       </div>
     </div>
   );

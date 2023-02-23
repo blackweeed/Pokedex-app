@@ -38,21 +38,30 @@
   right: 2%;
   bottom: 1rem;
   display: flex;
+  flex-direction: column;
   gap: 0.8rem;
 }
+.pokemon-detail__stats .right div {
+  display: flex;
+  gap: 1rem;
+}
+.pokemon-detail__stats .right .statsName p {
+  width: 7rem;
+  font-size: 0.9rem;
+}
 
-.pokemon-detail__stats .right p {
+.pokemon-detail__stats .right div p {
   color: #b3eafe;
   text-align: center;
 }
-.pokemon-detail__stats .right div {
+.pokemon-detail__stats .right div div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   justify-content: flex-end;
 }
-.pokemon-detail__stats .right div div {
-  width: 6rem;
+.pokemon-detail__stats .right div div div {
+  width: 7rem;
   height: 1rem;
   background-color: #0a141e;
   border: 1px solid #466e9b;
